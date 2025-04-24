@@ -43,7 +43,6 @@ const Hero = () => {
                     </Link>
                   </div>
                 </div>
-
                 <img
                   className="hero__banner"
                   style={{ width: "288px", height: "288px" }}
