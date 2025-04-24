@@ -116,6 +116,36 @@
   }
 }
 
+@media (max-width: 431px) {
+  .hero__block {
+    height: 400px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    padding: 30px 50px;
+  }
+  .hero__title {
+    width: 200px;
+    font-size: 18px;
+    color: #374151;
+  }
+  .hero__info {
+    color: #ea580c;
+    font-size: 12px;
+  }
+
+  .hero__link {
+    padding: 8px 10px;
+    font-size: 12px;
+    border-radius: 10px;
+  }
+
+  .hero__link2 {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
+
 @media (max-width: 375px) {
   .hero__block {
     height: 400px;

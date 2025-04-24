@@ -135,6 +135,29 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 431px) {
+  .popular__wrapper h2 {
+    font-size: 1.5rem;
+  }
+
+  .popular-products__link {
+    margin-top: 30px;
+    gap: 5px;
+  }
+
+  .popular-products__link h3 {
+    display: none;
+  }
+
+  .popular-products__link a {
+    gap: 3px;
+    color: #ff6600;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+}
+
 @media (max-width: 375px) {
   .popular__wrapper h2 {
     font-size: 1.5rem;
