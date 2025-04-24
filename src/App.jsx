@@ -10,11 +10,13 @@ import HomeDecoration from "./routes/categories/homeDecoration/HomeDecoration";
 import Groceries from "./routes/categories/groceries/Groceries";
 import Furniture from "./routes/categories/furniture/Furniture";
 import Motorcycle from "./routes/categories/motorcycle/Motorcycle";
+import ScrollToTop from "./ScrollTop";
 
 function App() {
   return (
     <>
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
