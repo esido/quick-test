@@ -56,7 +56,7 @@ const Popular = () => {
           <div className="popular-products__link">
             <h3>Score these popularing kicks</h3>
             <Link to={"/products"}>
-              See all <ArrowRight size={20} />
+              See <span>all</span> <ArrowRight size={20} />
             </Link>
           </div>
         </div>

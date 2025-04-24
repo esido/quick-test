@@ -40,13 +40,13 @@ const Navbar = () => {
                   <span>Account</span>
                 </Link>
               </li>
-              <li>
+              <li className="media-list">
                 <Link to={"/"}>
                   <Heart size={20} />
                   <span>Favorites</span>
                 </Link>
               </li>
-              <li>
+              <li className="media-list">
                 <Link to={"/"}>
                   <ShoppingCart size={20} />
                   <span>Cart</span>
