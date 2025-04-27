@@ -18,12 +18,12 @@
   justify-content: center;
 }
 
-.mySwiper {
+.single-mySwiper {
   width: 550px;
   margin-top: 20px;
 }
 
-.mySwiper img {
+.single-mySwiper img {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   padding: 10px;
@@ -32,18 +32,18 @@
   transition: all 0.5s ease;
 }
 
-.mySwiper img:hover {
+.single-mySwiper img:hover {
   border: 1px solid rgba(0, 0, 0, 1);
 }
 
-.mySwiper2 {
+.single-mySwiper2 {
   display: flex;
   width: 550px;
   padding: 0 20px;
   justify-content: center;
 }
 
-.mySwiper2 img {
+.single-mySwiper2 img {
   height: 500px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   object-fit: contain;

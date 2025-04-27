@@ -33,7 +33,7 @@ const SingleProducts = () => {
                 navigation={true}
                 thumbs={{ swiper: thumbsSwiper }}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper2"
+                className="single-mySwiper2"
               >
                 {singleProduct.images.map((image, index) => (
                   <SwiperSlide key={index}>
@@ -49,7 +49,7 @@ const SingleProducts = () => {
                 freeMode={true}
                 watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper"
+                className="single-mySwiper"
               >
                 {singleProduct.images.map((image, index) => (
                   <SwiperSlide key={index}>

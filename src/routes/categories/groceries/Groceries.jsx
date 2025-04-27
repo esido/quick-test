@@ -4,7 +4,9 @@ import "../Categories.css";
 
 const Groceries = () => {
   const [products, setProducts] = useState([]);
-
+  const [isOpen, setIsOpen] = useState(false);
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
   useEffect(() => {
     fetch("https://dummyjson.com/products/category/groceries")
       .then((response) => response.json())
@@ -27,11 +29,27 @@ const Groceries = () => {
               </Link>
               <div className="item-price">
                 <strong>${product.price}</strong>
-                <button className="buy-now-btn">Buy Now</button>
+                <button className="buy-now-btn" onClick={openModal}>
+                  Buy Now
+                </button>
               </div>
             </div>
           ))}
         </div>
+        {isOpen && (
+          <div className="modal-overlay" onClick={closeModal}>
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
+              <span className="close-btn" onClick={closeModal}>
+                &times;
+              </span>
+              <h2>Call us to place an order</h2>
+              <p className="phone-number">+998 90-123-45-67</p>
+              <a href="tel:+998901234567" className="call-btn">
+                Call
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
