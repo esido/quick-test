@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../Categories.css";
 
 const Laptops = () => {
@@ -19,9 +20,11 @@ const Laptops = () => {
         <div className="category-products__content">
           {products.map((product) => (
             <div className="item" key={product.id}>
-              <img src={product.images[0]} alt={product.title} />
-              <h3>{product.title}</h3>
-              <p>{product.description}</p>
+              <Link to={`/products/${product.id}`}>
+                <img src={product.images[0]} alt="" />
+                <h3>{product.title}</h3>
+                <p>{product.description}</p>
+              </Link>
               <div className="item-price">
                 <strong>${product.price}</strong>
                 <button className="buy-now-btn">Buy Now</button>

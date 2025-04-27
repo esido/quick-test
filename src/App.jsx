@@ -10,6 +10,7 @@ import HomeDecoration from "./routes/categories/homeDecoration/HomeDecoration";
 import Groceries from "./routes/categories/groceries/Groceries";
 import Furniture from "./routes/categories/furniture/Furniture";
 import Motorcycle from "./routes/categories/motorcycle/Motorcycle";
+import SingleProducts from "./routes/singleProduct/SingleProducts";
 import ScrollToTop from "./ScrollTop";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/groceries" element={<Groceries />} />
         <Route path="/furniture" element={<Furniture />} />
         <Route path="/motorcycle" element={<Motorcycle />} />
+        <Route path="/products/:id" element={<SingleProducts />} />
       </Routes>
 
       <Footer />

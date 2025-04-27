@@ -1,0 +1,152 @@
+.single-product {
+  margin: 50px 0;
+}
+
+.single-product__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.single-produc__img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.single-produc__img .swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.mySwiper {
+  width: 550px;
+  margin-top: 20px;
+}
+
+.mySwiper img {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 10px;
+  height: 100px;
+  object-fit: contain;
+  transition: all 0.5s ease;
+}
+
+.mySwiper img:hover {
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.mySwiper2 {
+  display: flex;
+  width: 550px;
+  padding: 0 20px;
+  justify-content: center;
+}
+
+.mySwiper2 img {
+  height: 500px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+.single-product__content h1 {
+  color: rgb(51, 51, 51);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+.single-product__content ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.single-product__content ul li {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.single-product__content ul li strong {
+  width: 120px;
+  color: rgb(51, 51, 51);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0%;
+}
+
+.single-product__content ul li span {
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 3px;
+  font-size: 18px;
+  background: rgb(239, 239, 239);
+}
+
+.single-product__block {
+  display: flex;
+  gap: 50px;
+  align-items: start;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.single-product__price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.single-product__price strong {
+  width: 120px;
+  color: rgb(51, 51, 51);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0%;
+}
+
+.single-product__price span {
+  color: rgb(51, 51, 51);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 31.92px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+@media (max-width: 431px) {
+  .single-product__wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mySwiper2 {
+    width: 100%;
+    padding: 0;
+  }
+
+  .mySwiper2 img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+  }
+
+  .mySwiper {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .mySwiper img {
+    height: 80px;
+  }
+}
