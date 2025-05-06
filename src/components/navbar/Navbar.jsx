@@ -17,13 +17,13 @@ const Navbar = () => {
 
           <div className="header__block2">
             <select className="category-select">
-              <option value="en">Category</option>
+              <option value="en">Kategoriya</option>
             </select>
 
             <div className="search-bar">
               <input
                 type="text"
-                placeholder="Search for anything"
+                placeholder="Qididrish..."
                 className="search-input"
               />
               <button className="search-btn">
@@ -35,21 +35,18 @@ const Navbar = () => {
           <div className="header__block3">
             <ul className="header__list">
               <li>
-                <Link to={"/"}>
+                <Link to={"/login"}>
                   <User size={20} />
-                  <span>Account</span>
                 </Link>
               </li>
               <li className="media-list">
                 <Link to={"/"}>
                   <Heart size={20} />
-                  <span>Favorites</span>
                 </Link>
               </li>
               <li className="media-list">
                 <Link to={"/"}>
                   <ShoppingCart size={20} />
-                  <span>Cart</span>
                 </Link>
               </li>
             </ul>
@@ -58,35 +55,29 @@ const Navbar = () => {
       </div>
 
       <div className="header-line"></div>
+
       <div className="container">
         <nav className="nav">
           <ul>
             <li>
-              <NavLink to={"/"}>Home</NavLink>
+              <NavLink to={"/"}>Asosiy</NavLink>
             </li>
 
             <li>
-              <NavLink to={"/products"}>All</NavLink>
+              <NavLink to={"/products"}>Hammasi</NavLink>
             </li>
             <li>
-              <NavLink to={"/smartphones"}>smartphones</NavLink>
+              <NavLink to={"/smartphones"}>Smartphonlar</NavLink>
             </li>
             <li>
-              <NavLink to={"/laptops"}>laptops</NavLink>
+              <NavLink to={"/laptops"}>Noutbuklar</NavLink>
             </li>
             <li>
-              <NavLink to={"/home-decoration"}>home decoration</NavLink>
-            </li>
-            <li>
-              <NavLink to={"/groceries"}>groceries</NavLink>
+              <NavLink to={"/furniture"}>Mebel</NavLink>
             </li>
 
             <li>
-              <NavLink to={"/furniture"}>furniture</NavLink>
-            </li>
-
-            <li>
-              <NavLink to={"/motorcycle"}>motorcycle</NavLink>
+              <NavLink to={"/motorcycle"}>Motosikllar</NavLink>
             </li>
           </ul>
         </nav>

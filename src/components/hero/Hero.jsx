@@ -30,16 +30,18 @@ const Hero = () => {
             <SwiperSlide>
               <div className="hero__block">
                 <div className="hero__content">
-                  <p className="hero__info">Hurry up only few lefts!</p>
+                  <p className="hero__info">
+                    Shoshiling, faqat bir necha dona qoldi!{" "}
+                  </p>
                   <h1 className="hero__title">
-                    Unleash the Speed. Rule the Road.
+                    Tezlikni bo‘shating. Yo‘lni hukmron qiling.
                   </h1>
                   <div className="hero__btns">
                     <Link to={"/motorcycle"} className="hero__link">
-                      Shop now
+                      Hozir sotib oling
                     </Link>
                     <Link to={"/motorcycle"} className="hero__link2">
-                      Find more <ArrowRight size={20} />
+                      Boshqalari <ArrowRight size={20} />
                     </Link>
                   </div>
                 </div>
@@ -54,17 +56,19 @@ const Hero = () => {
             <SwiperSlide>
               <div className="hero__block">
                 <div className="hero__content">
-                  <p className="hero__info">Hurry up only few lefts!</p>
+                  <p className="hero__info">
+                    Shoshiling, faqat bir necha dona qoldi!
+                  </p>
                   <h1 className="hero__title">
-                    Power Meets Elegance - Apple MacBook Pro is Here for you!
+                    Quvvat va Nafislik Uchrashadi - Apple MacBook Pro siz uchun!
                   </h1>
 
                   <div className="hero__btns">
                     <Link to={"/laptops"} className="hero__link">
-                      Shop now
+                      Hozir sotib oling
                     </Link>
                     <Link to={"/laptops"} className="hero__link2">
-                      Find more <ArrowRight size={20} />
+                      Boshqalari <ArrowRight size={20} />
                     </Link>
                   </div>
                 </div>
@@ -80,15 +84,20 @@ const Hero = () => {
             <SwiperSlide>
               <div className="hero__block">
                 <div className="hero__content">
-                  <p className="hero__info">Hurry up only few lefts!</p>
-                  <h1 className="hero__title">Express Yourself with Color</h1>
+                  <p className="hero__info">
+                    {" "}
+                    Shoshiling, faqat bir necha dona qoldi!
+                  </p>
+                  <h1 className="hero__title">
+                    Rang bilan o‘zingizni ifoda eting
+                  </h1>
 
                   <div className="hero__btns">
                     <Link to={"/smartphones"} className="hero__link">
-                      Shop now
+                      Hozir sotib oling
                     </Link>
                     <Link to={"/smartphones"} className="hero__link2">
-                      Find more <ArrowRight size={20} />
+                      Boshqalari <ArrowRight size={20} />
                     </Link>
                   </div>
                 </div>

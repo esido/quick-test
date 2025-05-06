@@ -8,33 +8,41 @@ const Furniture = () => {
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
   useEffect(() => {
-    fetch("https://dummyjson.com/products/category/furniture")
+    fetch("https://v1.turbotravel.uz/api/news")
       .then((response) => response.json())
       .then((data) => {
-        setProducts(data.products);
+        const filteredProducts = data.data.filter(
+          (product) => product.name_en === "Mebel"
+        );
+        setProducts(filteredProducts);
       });
   }, []);
 
   return (
     <div className="category-products">
       <div className="container">
-        <h1 className="category-products__title">Furniture</h1>
+        <h1 className="category-products__title">Mebel</h1>
         <div className="category-products__content">
-          {products.map((product) => (
-            <div className="item" key={product.id}>
-              <Link to={`/products/${product.id}`}>
-                <img src={product.images[0]} alt="" />
-                <h3>{product.title}</h3>
-                <p>{product.description}</p>
-              </Link>
-              <div className="item-price">
-                <strong>${product.price}</strong>
-                <button className="buy-now-btn" onClick={openModal}>
-                  Buy Now
-                </button>
+          {products.map((product) => {
+            const imageSrc = product.news_images?.[0]?.image_src
+              ? `https://v1.turbotravel.uz/api/uploads/images/${product.news_images[0].image_src}`
+              : "https://via.placeholder.com/100";
+            return (
+              <div className="item" key={product.id}>
+                <Link to={`/products/${product.id}`}>
+                  <img src={imageSrc} alt="" />
+                  <h3>{product.name_uz}</h3>
+                  <p>{product.text_uz}</p>
+                </Link>
+                <div className="item-price">
+                  <strong>{product.name_ru} so'm</strong>
+                  <button className="buy-now-btn" onClick={openModal}>
+                    Sotib olish
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         {isOpen && (
           <div className="modal-overlay" onClick={closeModal}>

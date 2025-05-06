@@ -9,33 +9,38 @@ const Products = () => {
   const closeModal = () => setIsOpen(false);
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products")
+    fetch("https://v1.turbotravel.uz/api/news")
       .then((response) => response.json())
       .then((data) => {
-        setProducts(data.products);
+        setProducts(data.data);
       });
   }, []);
 
   return (
     <div className="category-products">
       <div className="container">
-        <h1 className="category-products__title">All Products</h1>
+        <h1 className="category-products__title">Barcha mahsulotlar</h1>
         <div className="category-products__content">
-          {products.map((product) => (
-            <div className="item" key={product.id}>
-              <Link to={`/products/${product.id}`}>
-                <img src={product.images[0]} alt="" />
-                <h3>{product.title}</h3>
-                <p>{product.description}</p>
-              </Link>
-              <div className="item-price">
-                <strong>${product.price}</strong>
-                <button className="buy-now-btn" onClick={openModal}>
-                  Buy Now
-                </button>
+          {products.map((product) => {
+            const imageSrc = product.news_images?.[0]?.image_src
+              ? `https://v1.turbotravel.uz/api/uploads/images/${product.news_images[0].image_src}`
+              : "https://via.placeholder.com/100";
+            return (
+              <div className="item" key={product.id}>
+                <Link to={`/products/${product.id}`}>
+                  <img src={imageSrc} alt="" />
+                  <h3>{product.name_uz}</h3>
+                  <p>{product.text_uz}</p>
+                </Link>
+                <div className="item-price">
+                  <strong>{product.name_ru} so'm</strong>
+                  <button className="buy-now-btn" onClick={openModal}>
+                    Sotib olish
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {isOpen && (
@@ -44,10 +49,10 @@ const Products = () => {
               <span className="close-btn" onClick={closeModal}>
                 &times;
               </span>
-              <h2>Call us to place an order</h2>
+              <h2>Buyurtma berish uchun bizga qo‘ng‘iroq qiling</h2>
               <p className="phone-number">+998 90-123-45-67</p>
               <a href="tel:+998901234567" className="call-btn">
-                Call
+                Qo‘ng‘iroq qilish
               </a>
             </div>
           </div>

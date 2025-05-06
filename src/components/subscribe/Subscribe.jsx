@@ -6,7 +6,9 @@ const Subscribe = () => {
     <div id="subscribe" className="subscribe">
       <div className="container">
         <div className="subscribe__wrapper">
-          <h2 className="subscribe__title">Subscribe now & get 20% off</h2>
+          <h2 className="subscribe__title">
+            Hozir obuna bo‘ling va 20% chegirma oling
+          </h2>
           <p className="subscribe__subtitle">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry.
@@ -14,10 +16,10 @@ const Subscribe = () => {
           <div className="subscribe__search-bar">
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder="Emailni kiriting"
               className="subscribe__search-input"
             />
-            <button className="subscribe__search-btn">Search</button>
+            <button className="subscribe__search-btn">Qidirish</button>
           </div>
         </div>
       </div>

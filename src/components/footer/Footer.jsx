@@ -19,25 +19,25 @@ const Footer = () => {
           </div>
 
           <div class="footer__links">
-            <h3>Navigation</h3>
+            <h3>Navigatsiya</h3>
             <ul>
               <li>
-                <Link to={"/"}>Home</Link>
+                <Link to={"/"}>Asosiy</Link>
               </li>
               <li>
-                <Link to={"/products"}>All Products</Link>
+                <Link to={"/products"}>Hammasi</Link>
               </li>
               <li>
-                <Link to={"/about"}>About</Link>
+                <Link to={"/about"}>Biz haqimizda</Link>
               </li>
               <li>
-                <Link to={"/contact"}>Contact</Link>
+                <Link to={"/contact"}>Bog'lanish</Link>
               </li>
             </ul>
           </div>
 
           <div class="footer__contacts">
-            <h3>Get in touch</h3>
+            <h3>Bog'lanish</h3>
             <p>
               <a>+998 78 123-45-67</a>
             </p>

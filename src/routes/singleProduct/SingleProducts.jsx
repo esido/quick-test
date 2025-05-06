@@ -14,11 +14,12 @@ const SingleProducts = () => {
   const [singleProduct, setSingleProduct] = useState(null);
 
   useEffect(() => {
-    fetch(`https://dummyjson.com/products/${id}`)
+    fetch(`https://v1.turbotravel.uz/api/news/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        setSingleProduct(data);
-      });
+        setSingleProduct(data.data);
+      })
+      .catch((err) => console.error("Ошибка загрузки продукта:", err));
   }, [id]);
 
   return (
@@ -26,7 +27,7 @@ const SingleProducts = () => {
       <div className="container">
         {singleProduct && (
           <div className="single-product__wrapper">
-            <div className="single-produc__img">
+            <div className="single-product__img">
               <Swiper
                 loop={true}
                 spaceBetween={10}
@@ -35,12 +36,17 @@ const SingleProducts = () => {
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="single-mySwiper2"
               >
-                {singleProduct.images.map((image, index) => (
+                {singleProduct.news_images?.map((image, index) => (
                   <SwiperSlide key={index}>
-                    <img width={500} src={image} alt={`Image ${index}`} />
+                    <img
+                      width={500}
+                      src={`https://v1.turbotravel.uz/api/uploads/images/${image.image_src}`}
+                      alt={`Image ${index}`}
+                    />
                   </SwiperSlide>
                 ))}
               </Swiper>
+
               <Swiper
                 onSwiper={setThumbsSwiper}
                 loop={true}
@@ -51,34 +57,33 @@ const SingleProducts = () => {
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="single-mySwiper"
               >
-                {singleProduct.images.map((image, index) => (
+                {singleProduct.news_images?.map((image, index) => (
                   <SwiperSlide key={index}>
-                    <img width={100} src={image} alt="" />
+                    <img
+                      width={100}
+                      src={`https://v1.turbotravel.uz/api/uploads/images/${image.image_src}`}
+                      alt=""
+                    />
                   </SwiperSlide>
                 ))}
               </Swiper>
             </div>
+
             <div className="single-product__content">
-              <h1>{singleProduct.title}</h1>
+              <h1>{singleProduct.name_uz}</h1>
               <ul>
                 <li>
-                  <strong>Description:</strong>{" "}
-                  <span>{singleProduct.description}</span>
+                  <strong>Tavsif:</strong> <span>{singleProduct.text_uz}</span>
                 </li>
                 <li>
-                  <strong>Brand:</strong> <span>{singleProduct.brand}</span>
-                </li>
-                <li>
-                  <strong>Category:</strong>{" "}
-                  <span>{singleProduct.category}</span>
-                </li>
-                <li>
-                  <strong>Rating:</strong> <span>{singleProduct.rating}/5</span>
+                  <strong>Categoriya:</strong>{" "}
+                  <span>{singleProduct.name_en}</span>
                 </li>
               </ul>
+
               <div className="single-product__block">
                 <div className="single-product__price">
-                  <strong>Price:</strong> <span>${singleProduct.price}</span>
+                  <strong>Narx:</strong> <span>{singleProduct.name_ru}</span>
                 </div>
               </div>
             </div>
