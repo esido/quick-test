@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addProduct, removeCart } from "../../../redux/cartSlice";
 import { Link } from "react-router-dom";
 import "../Categories.css";
 
 const Laptops = () => {
   const [products, setProducts] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.cart);
   useEffect(() => {
     fetch("https://v1.turbotravel.uz/api/news")
       .then((response) => response.json())
@@ -17,6 +18,28 @@ const Laptops = () => {
         setProducts(filteredProducts);
       });
   }, []);
+
+  const isInCart = (productId) => {
+    return cart.some((item) => item.id === productId);
+  };
+
+  const handleCartToggle = (product) => {
+    if (isInCart(product.id)) {
+      dispatch(removeCart(product.id));
+    } else {
+      const formattedProduct = {
+        id: product.id,
+        title: product.name_uz,
+        description: product.text_uz,
+        images: product.news_images?.map(
+          (img) =>
+            `https://v1.turbotravel.uz/api/uploads/images/${img.image_src}`
+        ),
+        price: product.name_ru,
+      };
+      dispatch(addProduct(formattedProduct));
+    }
+  };
 
   return (
     <div className="category-products">
@@ -36,28 +59,21 @@ const Laptops = () => {
                 </Link>
                 <div className="item-price">
                   <strong>{product.name_ru} so'm</strong>
-                  <button className="buy-now-btn" onClick={openModal}>
-                    Sotib olish
+                  <button
+                    className={
+                      isInCart(product.id)
+                        ? "buy-now-btn buy-now-btn-delete"
+                        : "buy-now-btn"
+                    }
+                    onClick={() => handleCartToggle(product)}
+                  >
+                    {isInCart(product.id) ? "Olib tashlash" : "Savatga solish"}
                   </button>
                 </div>
               </div>
             );
           })}
         </div>
-        {isOpen && (
-          <div className="modal-overlay" onClick={closeModal}>
-            <div className="modal" onClick={(e) => e.stopPropagation()}>
-              <span className="close-btn" onClick={closeModal}>
-                &times;
-              </span>
-              <h2>Call us to place an order</h2>
-              <p className="phone-number">+998 90-123-45-67</p>
-              <a href="tel:+998901234567" className="call-btn">
-                Call
-              </a>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );

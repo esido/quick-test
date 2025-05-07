@@ -3,12 +3,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./Login.css"; // Импортируем файл стилей
-
+import "./Login.css";
 function Login() {
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("900474227");
+  const [password, setPassword] = useState("superadmin");
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -23,16 +21,18 @@ function Login() {
 
       if (response.data.success) {
         const { accessToken } = response.data.data.tokens;
-
         localStorage.setItem("accessToken", accessToken.token);
 
         toast.success("Siz tizimga muvaffaqiyatli kirdingiz");
+
+        console.log("Токен:", accessToken);
 
         navigate("/admin/add");
       } else {
         toast.error("Noto‘g‘ri kirish ma’lumotlari");
       }
     } catch (error) {
+      console.log(error);
       toast.error("Noto‘g‘ri kirish ma’lumotlari");
     }
   };
@@ -54,7 +54,6 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button onClick={handleLogin}>Kirish</button>
-        {error && <p className="error-message">{error}</p>}
       </div>
     </div>
   );

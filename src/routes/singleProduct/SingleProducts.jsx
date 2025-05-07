@@ -6,12 +6,16 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { useDispatch, useSelector } from "react-redux";
+import { addProduct, removeCart } from "../../redux/cartSlice";
 import "./singleProducts.css";
 
 const SingleProducts = () => {
   const { id } = useParams();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [singleProduct, setSingleProduct] = useState(null);
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.cart);
 
   useEffect(() => {
     fetch(`https://v1.turbotravel.uz/api/news/${id}`)
@@ -21,6 +25,28 @@ const SingleProducts = () => {
       })
       .catch((err) => console.error("Ошибка загрузки продукта:", err));
   }, [id]);
+
+  const isInCart = (productId) => {
+    return cart.some((item) => item.id === productId);
+  };
+
+  const handleCartToggle = (product) => {
+    if (isInCart(product.id)) {
+      dispatch(removeCart(product.id));
+    } else {
+      const formattedProduct = {
+        id: product.id,
+        title: product.name_uz,
+        description: product.text_uz,
+        images: product.news_images?.map(
+          (img) =>
+            `https://v1.turbotravel.uz/api/uploads/images/${img.image_src}`
+        ),
+        price: product.name_ru,
+      };
+      dispatch(addProduct(formattedProduct));
+    }
+  };
 
   return (
     <div className="single-product">
@@ -39,7 +65,6 @@ const SingleProducts = () => {
                 {singleProduct.news_images?.map((image, index) => (
                   <SwiperSlide key={index}>
                     <img
-                      width={500}
                       src={`https://v1.turbotravel.uz/api/uploads/images/${image.image_src}`}
                       alt={`Image ${index}`}
                     />
@@ -85,6 +110,21 @@ const SingleProducts = () => {
                 <div className="single-product__price">
                   <strong>Narx:</strong> <span>{singleProduct.name_ru}</span>
                 </div>
+              </div>
+              <div className="buy-now-item">
+                {" "}
+                <button
+                  className={
+                    isInCart(singleProduct.id)
+                      ? "buy-now-btn buy-now-btn-delete"
+                      : "buy-now-btn"
+                  }
+                  onClick={() => handleCartToggle(singleProduct)}
+                >
+                  {isInCart(singleProduct.id)
+                    ? "Olib tashlash"
+                    : "Savatga solish"}
+                </button>
               </div>
             </div>
           </div>

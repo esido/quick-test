@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import EditProduct from "./routes/admin/EditProduct";
+import Cart from "./routes/cart/Cart";
 
 function App() {
   const { pathname } = useLocation();
@@ -46,6 +47,7 @@ function App() {
         <Route path="/furniture" element={<Furniture />} />
         <Route path="/motorcycle" element={<Motorcycle />} />
         <Route path="/products/:id" element={<SingleProducts />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
         {isAuthenticated ? (
           <Route path="/admin" element={<Admin />}>

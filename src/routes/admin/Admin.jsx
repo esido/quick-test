@@ -10,7 +10,7 @@ const Admin = () => {
 
   const handleLogout = () => {
     const confirmLogOut = window.confirm(
-      "Ushbu mahsulotni aniq o‘chirishni xohlaysizmi? "
+      "Tizimdan aniq chiqishni xohlaysizmi? "
     );
     if (!confirmLogOut) return;
     localStorage.removeItem("accessToken");

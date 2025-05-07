@@ -81,12 +81,6 @@
   text-overflow: ellipsis;
 }
 
-.category-products__content .item .buy-now-btn:hover {
-  background-color: #ea580c;
-  transform: scale(1.05);
-  color: #fff;
-}
-
 .category-products__content .item .item-price {
   display: flex;
   align-items: center;
@@ -101,14 +95,30 @@
 }
 
 .category-products__content .item .buy-now-btn {
-  color: #333333;
-  padding: 5px 10px;
+  color: #fff;
+  padding: 5px 5px;
   font-size: 16px;
   font-weight: bold;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.category-products__content .item .buy-now-btn-delete {
+  background-color: red;
+  color: #fff;
+}
+
+.item-price-delete {
+  background-color: red;
+  color: #fff !important;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 .category-products__content .item:hover img {
@@ -120,76 +130,56 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
+.category-products__none {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  height: 50vh;
 }
 
-/* Modal Box */
-.modal {
-  background-color: #fff;
-  padding: 25px 30px;
-  font-family: "Poppins", sans-serif;
-  border-radius: 15px;
-  text-align: center;
-  position: relative;
-  width: 300px;
-  max-width: 90%;
-
-  /* Новое для анимации */
-  transform: scale(0.7);
-  opacity: 0;
-  animation: modalFadeIn 0.3s forwards;
-}
-
-/* Ключевые кадры анимации */
-@keyframes modalFadeIn {
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* Close Button */
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 25px;
-  cursor: pointer;
-  color: red;
-}
-
-.phone-number {
-  font-size: 20px;
-  font-family: "Poppins", sans-serif;
-  margin: 20px 0;
-  font-weight: bold;
-}
-
-/* Call Button */
-.call-btn {
+.category-products__none p {
   background-color: #ea580c;
-  color: white;
-  padding: 10px 25px;
-  border-radius: 10px;
-  font-family: "Poppins", sans-serif;
-  text-decoration: none;
-  font-size: 16px;
-  display: inline-block;
-  transition: background-color 0.3s;
+  color: #fff !important;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cart-summary {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  border-top: 1px solid #ea580c;
+  padding-top: 15px;
+}
+
+.cart-summary-price {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cart-summary button {
+  background-color: #ea580c;
+  color: #fff !important;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 @media (max-width: 431px) {
   .category-products__content {
     justify-content: center;
+  }
+
+  .cart-summary {
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+    justify-content: space-between;
   }
 }

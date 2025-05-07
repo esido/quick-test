@@ -1,10 +1,14 @@
 import React from "react";
 import "./Navbar.css";
 import logo from "../../assets/logo.svg";
-import { Search, User, Heart, ShoppingCart } from "lucide-react";
+import { Search, User, ShoppingCart } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const cartdata = useSelector((state) => state.cart.cart);
+  const totalItems = cartdata.length;
+
   return (
     <section id="header" className="header" navigation="header">
       <div className="container">
@@ -40,13 +44,8 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="media-list">
-                <Link to={"/"}>
-                  <Heart size={20} />
-                </Link>
-              </li>
-              <li className="media-list">
-                <Link to={"/"}>
-                  <ShoppingCart size={20} />
+                <Link to={"/cart"}>
+                  <ShoppingCart size={20} /> <span>({totalItems})</span>
                 </Link>
               </li>
             </ul>
@@ -67,7 +66,7 @@ const Navbar = () => {
               <NavLink to={"/products"}>Hammasi</NavLink>
             </li>
             <li>
-              <NavLink to={"/smartphones"}>Smartphonlar</NavLink>
+              <NavLink to={"/smartphones"}>Smartfonlar</NavLink>
             </li>
             <li>
               <NavLink to={"/laptops"}>Noutbuklar</NavLink>
